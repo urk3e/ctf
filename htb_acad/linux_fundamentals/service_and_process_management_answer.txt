@@ -1,0 +1,9 @@
+pertama, pakai nmap untuk mengetahui port yang terbuka
+sudo nmap -sV -sS -oN scanned IP__
+
+lalu connect ke ip target dengan ssh, dengan command
+ssh -l user_name -p num_port IP__/TargetLink
+
+lalu gunakan systemctl dan grep untuk mendapatkan nama unit ang memiliki 
+deskripsi "Load AppArmor profiles managed internally by snapd"
+systemctl | grep AppArmor

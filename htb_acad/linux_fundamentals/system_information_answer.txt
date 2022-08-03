@@ -1,0 +1,17 @@
+untuk melihat machine hardware name gunakan
+uname -m
+
+path untuk ke htb-student home dir adalah
+/home/htb-student
+
+untuk mengetahui path untuk mail htb-student gunakan
+env | grep mail (ini cari di environment makanya pake env)
+
+specified shell untuk user gunakan
+echo $SHELL
+
+mengetahui versi kernel yang terinstall di sistem menggunakan
+uname -r (release)
+
+mengetahui network interface menggunakan
+ifconfig

@@ -1,0 +1,11 @@
+pertama, kita scan dengan nmap
+sudo nmap -sC -sV -oN scanned IP__
+
+lalu connect dengan ssh
+ssh -l user_name -p num_port IP__
+
+lalu untuk melihat file hidden kita gunakan
+ls -la
+
+selanjutnya, untuk mendapatkan index dari sebuah file ataupun folder, gunakan
+ls -li

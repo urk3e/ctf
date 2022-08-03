@@ -1,0 +1,32 @@
+WLAN
+biasa disebut The Internet. WAN hanyalah banyak LAN yg bergabung jadi satu. Banyak perusahaan besar atau pemerintah memiliki internal WAN atau biasa disebut Intranet, Airgap Network, etc. Secara umum, cara utama kita untuk dapat identify bahwa sebuah network adalah WAN adalah dengan menggunakan WAN specific routing protocol speerti BGP, dan jika skema IP yg digunakan tidak dlm RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
+
+LAN/WLAN
+LAN dan WLAN akan memberikan ip yg didesain untuk penggunaan lokal (RFC1918, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). Di beberapa kasuss, seperti univ atau hotel, kita mungkin akan diberikan routable IP addres dengan bergabung ke LAN mereka, namun ini sangat jarang.
+
+VPN
+VPN memiliki setidaknya 3 tipe utama, meskipun begitu semuanya memiliki tujuan agar user merasa bahwa mereka masuk ke jaringan yang berbeda.
+- Site-to-Site VPN
+	Client dan Server adl network devices, seperti Router atau Firewall, dan membagi seluruh jangkauan jaringan. Biasanya digunkaan utk bergabung ke network perusahaan melalui internet, memungkinkan beberapa lokasi untuk saling berkomunikasi lewat internet seperti halnya local.
+- Remote Access VPN
+	Tipe ini melibatkan komputer client membuat virtual interface yang berpeerilaku seperti pada client network. HTB memanfaatkan openvpn, yg mana membuat TUN adapter letting us mengakses lab yg ada. Hal yg penting untuk dipertimbangkan dalam analisa vpn ini adalah routing table yang dibuat ketika bergabung ke vpn. Jika vpn hanya membuat routes untuk spesifik network seperti 10.10.10.0/24, ini disebut Split-Tunnel VPN, yg berarti koneksi internet tidak akan keluar dari VPN. Hal tersebut bagus untuk HTB karena memberikan akses ke lab tanpa privacy concern yang akan memonitoring internet koneksi kita. meskipun begitu, untuk perusahaan Split-Tunnel tipically tidak ideal karena jika mesin terinfeksi dengan malware, network-based detection methods tidak akan bekerja karena traffic tidak keluar ke internet.
+- SSL VPN
+	Tipe ini adalah vpn yg ada di web browser dan bahkan menjadi web browser dan capable untuk melakukan apapun. hal ini akan stream sebuah aplikasi atau entire deskto session ke web browser. contoh nya adalah HTB Pwnbox.
+
+BOOK Terms
+---------------------------------------------------------------------------------
+|	Network Type							|	Definition						|
+---------------------------------------------------------------------------------
+|	Global Area Network (GAN)				|	Global network (the inet)		|
+|	Metropolitan Area Network (MAN)			|	Regional network (multp LAN)	|
+|	Wireless Personal Area Network (WPAN)	|	Personal network (Bluetooth)	|
+---------------------------------------------------------------------------------
+
+GAN
+merupakan worldwide network seperti internet. Meskipun begitu, internet tidaklah satu"nya komputer network dari jenis ini. Perusahaan internasional juga maintain isolated network yg span beberapa WAN dan menghubungkan perusahaan secara worldwide. GAN menggunakan glass fiber infrastructure of wide-area networks and interconnect them by international undersea cables or satellite transmission.
+
+MAN
+merupakan broadband telecom network yang connect several LAN di geographical proximity. Sebagai rule, ini adalah individual branches of a company connected ke MAN via leased lines. Menggunakan Hi-performance router dan connections based on glass fibers. Transmission speed diantara dua remote node is comparable to communication within LAN. Internationally operating network operators provide the infrastructure for MANs. Cities wired as Metropolitan Area Networks can be integrated supra-regionally in Wide Area Networks (WAN) and internationally in Global Area Networks (GAN).
+
+PAN/WPAN
+modern end network spt hp, tab, laptop, desktop bisa connected ad hoc to form a network to enable data exchange, can be done by cable in the form of a Personal Area Network (PAN). Wireless variant WPAN based on bluetooth atau wireless usb. WPAN yg established via bluetooth disebut dengan piconet. Not suitable for connecting devices in seperate rooms or even building. in IoT, WPAN are used to communicate control and monitor apps with low data rates. Protocol seperti Insteon, Z-Wave, dan ZigBee secara khusus didesain untuk smart home dan home automation.

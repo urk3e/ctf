@@ -1,0 +1,6 @@
+untuk menggunakan search di nano menggunakan ctrl + w lalu klik enter
+
+untuk save files, gunakan ctrl + o lalu klik enter dan confirm nama files
+
+atau bisa menggunakan ctrl + x untuk bisa langsung keluar dan save files
+

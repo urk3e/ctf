@@ -1,0 +1,69 @@
+file descriptors dalam linux ada 3:
+ - Data Stream for Input
+	STDIN - 0
+ - Data Stream for Output
+	STDOUT - 1
+ - Data Stream for Output that relates to an error
+	STDERR - 2
+
+STDIN & STDOUT
+dalam hal ini contohnya jika kita menggunakan cat, ketika kita ketik command
+cat tanpa argumen, maka nantinya cat akan meminta input, dan jika setelah 
+kita melakukan input langsung menekan enter, maka hasil output yg dikeluarkan
+akan sama dengan input
+-- > cat (enter)
+     Still Learning (enter)
+     Still Learning (enter)
+     ^C (ctrl+c)
+
+STDOUT & STDERR
+untuk contoh ini kita gunakan command file, yg mana nantinya akan mengeluarkan
+error ketika kita melenemukan file terkait yg kita cari namun tidak memiliki
+permissions sebagai root, dan itu bisa membuat kita bingung, maka dari itu
+untuk hanya menampilkan output != error, kita gunakan 2 untuk redirecting
+error tersebut ke /dev/null atau ke sebuah file.
+-- > find /etc/ -name shadow 2>/dev/null
+
+Redirect STDOUT ke File
+kita dapat redirect output ke sebuah file dengan cara menambahkan tanda >
+dan memberi nama file
+-- > find /etc/ -name shadow 2>/dev/null > results.txt
+
+Redirect STDOUT dan STDERR ke file berbeda
+kita dapat melakukan redirect hasil command ke 2 file yang berbeda
+-- > find /etc/ -name shadow 2>stderr.txt 1>stdout.txt
+
+Redirect STDIN
+kita juga bisa melakukan redirect input ke command, ini kurang lebih sama saja
+dengan memberi argumen ke sebuah command.
+-- > tree < ~
+
+Redirect STDOUT & append ke file
+kita dapat redirect hasil sekaligus melakukan append hasil tersebut jika file
+yang dibuat
+-- > tree >> tree.txt
+
+Redirect STDIN Stream ke file
+kita juga dapat menggunakan << untuk menambahkan input ke stream dengan
+digabungkan function EOF(end of file) untuk define akhir dari sebuah input
+-- > cat << EOF > coba.txt
+     heredoc> your_input(enter)
+     heredoc> your_input(enter)
+     heredoc> EOF (enter)
+
+Pipes dan menghitung jumlah hasil
+cara lain untuk menyortir adalah menambahkan pipe (|) dan juga menggunakan
+function grep
+-- > find /etc/ -name *.conf 2>/dev/null | grep systemd
+sedangkan untuk menghitung jumlah hasil yang ada adalah menggunakan function wc
+-- > find /etc/ -name *.conf 2>/dev/null | grep systemd | wc -l
+
+--------------------------------------------------------------------------------
+
+Answer
+untuk mencari seberapa banyak file .log yg ada pd target, gunakan
+find / -name *.log 2>/dev/null
+
+untuk menghitung total paket yang terinstall, gunakan
+dpkg -l | grep -c '^ii'
+grep dgunakan untuk menghitung pkg yg terinstall saja tanpa memasukkan header

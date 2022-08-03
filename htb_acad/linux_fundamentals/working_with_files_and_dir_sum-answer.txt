@@ -1,0 +1,23 @@
+untuk membuat direktori yang sangat banyak pasti sangat susah, maka cara cepatnya adalah
+menggunakan -p pada mkdir command untuk menambahkan parent direktori.
+mkdir -p dir1/dir2/dir3/dirn
+
+dan untuk melihat hasilnya kita dapat melakukan command
+tree .
+
+untuk mengganti rename dan pindah file gunakan command mv
+mv (nama_file/folder_before) (nama_file/folder_dipindah/renamed)
+
+untuk memindahkan banyak file tinggal kita stack
+mv nama_file/folder1 nama_file/folder2 nama_file/folder_n destinasi_pindah
+
+-----------------------------------------------------------------------------
+ANSWER :
+
+untuk mengetahui last modified file pada sebuah dir, kita dapat menggunakan
+command berikut
+ls -lt
+
+untuk mengetahui inode number atau index number dari suatu file atau dir, dapat 
+menggunakan command
+ls -li
