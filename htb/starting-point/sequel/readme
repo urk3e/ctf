@@ -1,0 +1,30 @@
+lakukan scanning dengna nmap untuk mengetahui port yang terbuka:
+
+sudo nmap -sS -sV -oN scanned IP__
+
+untuk terhubung ke mysql, kita menggunakan command mysql dengan provide
+username root untuk masuk tanpa memberi password, dan jangan lupa
+provide host dengan IP__ htb.
+
+mysql -u root -h IP__
+
+setelah masuk, kita dapat melihat database apa saja yang ada dengan cara
+
+MDB> show databases;
+
+maka akan muncul semua database yang ada pada host tersebut. sedangkan untuk
+masuk ke database yang ada kita dapat melakukannya dengan cara
+
+MDB> use db_name;
+
+maka nantinya yg dari (none) akan menjadi db yang kita pilih. selanjutnya
+untuk melihat tabel yg ada, kita dapat melakukannya dengan cara
+
+MDB[db_name]> show tables;
+
+maka akan muncul semua tabel yg ada. selanjutnya kita dapat mengambil semua
+informasi dari tabel yang ada dengan cara 
+
+MDB[db_name]> select * from tb_name;
+
+dan akhirnya kita mendapatkan informasi yg kita inginkan

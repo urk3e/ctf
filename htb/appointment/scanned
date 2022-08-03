@@ -1,0 +1,9 @@
+# Nmap 7.92 scan initiated Tue Jul 12 21:04:43 2022 as: nmap -sS -sV -oN scanned 10.129.200.42
+Nmap scan report for 10.129.200.42 (10.129.200.42)
+Host is up (0.27s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jul 12 21:05:24 2022 -- 1 IP address (1 host up) scanned in 41.08 seconds

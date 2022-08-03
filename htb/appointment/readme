@@ -1,0 +1,37 @@
+lakukan scanning dengan nmap:
+sudo nmap -sS -sV -oN scanned IP__
+
+lalu lakkan sql injection dengan cara
+ketikkan admin'#' dan pasword p
+maka akan muncul flag
+
+hal tersebut terjadi karena ketika kita mengetikkan username dan pswd,
+nantinya input akan diteruskan ke database. kemudian database akan
+melakukan pengecekan di tabel apakah inputan kita sesuai dengan di tabel,
+jika sesuai maka akan diberi akses, jika tidak maka tidak akan ada akses.
+secara sederhana adalah seperti ini ketika kita melakukan inputan uname&pswd
+
+$sql="SELECT * FROM users WHERE username='$uname' AND password='$passwd123'";
+
+jika uname dan passwd123 ada dalam tabel, maka kita akan mendapat akses.
+dalam hal ini, kita tidak memiliki credential apapun, jadi kita perlu
+melakukan sql injection dan lihat apakah dapat berhasil.
+sql injection works ketika programmer lupa menambahkan input validation
+pada kode mereka. artinya kita dapat memberi username dengan karakter
+seperto ' atau #. query akan berubah seperti berikut
+
+$sql="SELECT * FROM users WHERE username='$admin'#' AND password='$passwd123'";
+
+nantinya sql akan recognize kode setelah # adalah sebuah comment yg tidak
+akan di run, sehingga nantinya code kita akan menjadi seperti berikut
+
+$sql="SELECT * FROM users WHERE username='$admin'
+
+yang mana berarti nantinya query ini akan ke tabel bernama user, dan mencari
+username dengan nama admin, dan jika ketemu maka akan melakukan 
+create new session tanpa melakukan cek apakah passwd sudah benar.
+admin dapat diganti dengan administrator atau root, untuk password bebas.
+
+
+
+source : https://www.mytechonit.com/post/hack-the-box-appointment
