@@ -1,0 +1,16 @@
+STAGED : payload dikirim dalam 2 part. Pertama dinamakan stager, yang mana di eksekusi 
+langsung di server. hal ini akan connect kembali ke listener, tapi tidak berisi 
+revshell code. Melainkan hanya connect ke listener dan menggunakan koneksi tersebut 
+untuk load payload sebenarnya, mengeksekuisinya langsung dan mencegahnya untuk 
+menyentuh disk server dimana hal tersebut dapat terdeteksi oleh AV tradisional. Maka 
+dari itu payload dibagi menjadi 2 part, SMALL INITIAL STAGER, dan revshell code yang 
+didownload ketika stager telah aktif. STAGED membutuhkan listener spesial, biasanya 
+Metasploit multi/handler.
+
+STAGELESS : lebih sering digunakan. stageless ini merupakan payload yang dirinya berisi 
+code yang mana ketika dieksekusi langsung mengirim shell kembali ke listener.
+
+
+
+STAGELESS payload biasanya lebih mudah digunakan, but also more `bulkier`, selain itu 
+juga lebih mudah untuk AV ataupun IDS program untuk menemukannya dan remove.

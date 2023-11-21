@@ -1,0 +1,15 @@
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.74.157
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /opt/dirbuster/directory-list-2.3-small.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+[2K/app                  (Status: 301) [Size: 310] [--> http://10.10.74.157/app/]
